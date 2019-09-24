@@ -22,3 +22,13 @@ var arrow = {
 };
 
 var anim1 = lottie.loadAnimation(arrow)
+
+var text = {
+	container: document.getElementById('text'),
+	renderer: 'svg',
+	loop: true,
+	autoplay: true,
+	animationData: text
+};
+
+var anim2 = lottie.loadAnimation(text)

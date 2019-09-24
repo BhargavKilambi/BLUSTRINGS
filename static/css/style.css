@@ -5,15 +5,22 @@ body,html{
 
 #logo{
 	position: relative;
-	bottom: 650px;
+	bottom: 1100px;
 	left: 80px;
 	height: 90%;
 	width: 90%; 
 }
 
+#text{
+  position: relative;
+  bottom: 400px;
+  height: 70%;
+  left: 15px;
+}
+
 #arrow{
 	position: relative;
-	bottom: 970px;
+	bottom: 1400px;
 	left: 550px;
 }
 
