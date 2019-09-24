@@ -141,38 +141,47 @@ body,html{
 
 #tl:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 #tc:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 #tr:hover {
   transform: scale(1.1);
+  cursor: pointer;
 }
 
 #ml:hover {
   transform: scale(1.4);
+  cursor: pointer;
 }
 
 #mc:hover {
   transform: scale(1.4);
+  cursor: pointer;
 }
 
 #mr:hover {
   transform: scale(1.2);
+  cursor: pointer;
 }
 
 #bl:hover {
   transform: scale(1.2);
+  cursor: pointer;
 }
 
 #bc:hover {
   transform: scale(1.4);
+  cursor: pointer;
 }
 
 #br:hover {
   transform: scale(1.4);
+  cursor: pointer;
 }
 
 
