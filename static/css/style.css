@@ -36,6 +36,6 @@ body, html{
 }
 
 .container{
-	transition: all 2s ease-in-out;
+	display: none;
 }
 
