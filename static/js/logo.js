@@ -13,16 +13,6 @@ var logo = {
 
 var anim = lottie.loadAnimation(logo)
 
-var arrow = {
-	container: document.getElementById('arrow'),
-	renderer: 'svg',
-	loop: true,
-	autoplay: true,
-	animationData: arrow
-};
-
-var anim1 = lottie.loadAnimation(arrow)
-
 var text = {
 	container: document.getElementById('text'),
 	renderer: 'svg',

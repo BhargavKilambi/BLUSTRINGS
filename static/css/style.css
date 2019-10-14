@@ -15,27 +15,19 @@ body, html{
 }
 
 #logo{
-	position: relative;
-	bottom: 1100px;
-	left: 80px;
-	height: 90%;
-	width: 90%; 
-}
-
-#text{
-	position: relative;
-	bottom: 400px;
+	width: 70%;
 	height: 70%;
-	left: 15px;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
 }
 
-#arrow{
-	position: relative;
-	bottom: 1400px;
-	left: 550px;
+#particles-js{
+    height: 130vh;
 }
 
-.container{
-	display: none;
-}
+
 

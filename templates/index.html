@@ -5,22 +5,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> 
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/frontpage.css') }}">
+		<script type="text/javascript" src="{{ url_for('static', filename='js/particles.js') }}"></script>
 	</head>
-
-	<body>
-		<p id="preloader"></p>
+	<body onload="preloader_function()">
+		<div id="preloader"></div>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/lottie.js') }}"></script>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/preloader.json') }}"></script>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/preloader.js') }}"></script>
-
 		<div class="container">
-			<section class="background"></section>
-			<section class="background"></section>
+	  		<section class="background">
+	  			<div class="intro">
+					<div id="particles-js"></div>
+					<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
+					<div id='logo'></div>
+					<script type="text/javascript" src="{{ url_for('static', filename='js/logo.json') }}"></script>
+					<script type="text/javascript" src="{{ url_for('static', filename='js/lottie.js') }}"></script>
+					<script type="text/javascript" src="{{ url_for('static', filename='js/logo.js') }}"></script>
+				</div>
+	  		</section>
+	  		<section class="background"></section>
 		</div>
 		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 		<script type="text/javascript">
 			$(document).ready(function(){
-				$('#preloader').delay(500).fadeOut('slow');
+				$('#preloader').delay(2000).fadeOut('slow');
 				$('.container').delay(500).fadeIn(3000);	
 			});
 		</script>
