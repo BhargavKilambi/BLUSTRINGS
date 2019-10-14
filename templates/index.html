@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lanh="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> 
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/frontpage.css') }}">
+</head>
+<body onload="preloader_function()">
+<body>
+	<p id="preloader"></p>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/lottie.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/preloader.json') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/preloader.js') }}"></script>
+	<script type="text/javascript">
+		var preloader = document.getElementById('preloader');
+		function preloader_function(){
+			preloader.style.display = 'none';
+		}
+	</script>
+	<div class="container">
+  		<section class="background"></section>
+  		<section class="background"></section>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+       		$('.container').fadeIn();	
+    	});
+	</script>
+	<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script> 
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script> 
+	<script type="text/javascript" src="{{ url_for('static', filename='js/frontpage.js') }}"></script>
+</body>
+</html>
