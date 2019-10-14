@@ -1,6 +1,17 @@
-body,html{
-	height: auto;
-	width: auto;
+body, html{
+	background-color: #000000;
+}
+
+#preloader{
+	height: 20%;
+	width: 20%;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 9999;
 }
 
 #logo{
@@ -12,10 +23,10 @@ body,html{
 }
 
 #text{
-  position: relative;
-  bottom: 400px;
-  height: 70%;
-  left: 15px;
+	position: relative;
+	bottom: 400px;
+	height: 70%;
+	left: 15px;
 }
 
 #arrow{
@@ -24,324 +35,7 @@ body,html{
 	left: 550px;
 }
 
-#container {
-  height:70%;
-  width:70%;
-  position: relative;
-  left: 125px;
-  bottom: 100px;
-  background:#000000;
+.container{
+	transition: all 2s ease-in-out;
 }
 
-#logotop{
-  position: relative;
-	height: 45%;
-	width: 20%;
-  left: 40%;
-  bottom: 40px;
-}
-
-#tl{		
-  overflow: hidden;
-  height:92%;
-  width:35%;
-  position:absolute;
-  top:3%;
-  left:2%;
-  background:#FF5050;
-  transition:all ease .15s;
-}
-
-#tc{
-  overflow: hidden;
-  height:44%;
-  width:45%;
-  position:absolute;
-  top:3%;
-  left:39.5%;
-  background:#FF5050;
-  transition:all ease .15s;
-}
-
-#tr{
-  overflow: hidden;
-  height:44%;
-  width:45%;
-  position:absolute;
-  top:50%;
-  left:39.5%;
-  background:#FF5050;
-  transition:all ease .15s;
-}
-
-#ml{
-  overflow: hidden; 
-  height:20%;
-  width:10%;
-  position:absolute;  
-  top:3%;
-  left:87%;
-  background:#FF5050;
-  transition:all ease .15s;
-}
-
-#mc{
-  overflow: hidden;
-  height:20%;
-  width:10%;
-  position:absolute;  
-  top:3%;
-  left:99.5%;
-  background:#FF5050;
-  transition:all ease .15s;
-}
-
-#mr{
-  overflow: hidden;
-  height:17%;
-  width:22%;
-  position:absolute;  
-  top:27%;
-  left:87%;
-  background:#FF5050;
-  transition:all ease .15s;
-}
-
-#bl{
-  overflow: hidden; 
-  height:17%;
-  width:23%;
-  position:absolute;  
-  top:52%;
-  left:87%;
-  background:#FF5050;
-  transition:all ease .15s;
-}
-
-#bc{
-  overflow: hidden;
-  height:20%;
-  width:10%;
-  position:absolute;  
-  top:73%;
-  left:87%;
-  background:#FF5050;
-  transition:all ease .15s;
-}
-#br{
-  overflow: hidden;
-  height:20%;
-  width:10%;
-  position:absolute;  
-  top:73%;
-  left:100%;
-  background:#FF5050;
-  transition:all ease .15s;
-}
-
-#tl:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-#tc:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-#tr:hover {
-  transform: scale(1.1);
-  cursor: pointer;
-}
-
-#ml:hover {
-  transform: scale(1.4);
-  cursor: pointer;
-}
-
-#mc:hover {
-  transform: scale(1.4);
-  cursor: pointer;
-}
-
-#mr:hover {
-  transform: scale(1.2);
-  cursor: pointer;
-}
-
-#bl:hover {
-  transform: scale(1.2);
-  cursor: pointer;
-}
-
-#bc:hover {
-  transform: scale(1.4);
-  cursor: pointer;
-}
-
-#br:hover {
-  transform: scale(1.4);
-  cursor: pointer;
-}
-
-
-#tl img {
-  display: block;
-  width: 150%;
-  height: 100%;
-}
-#tl:hover img {
-  opacity: 0.5;	
-}
-
-#tc img{
-  display: block;
-  width: 150%;
-  height: 200%;
-  position: relative;
-  right: 80px;
-  bottom: 40px;
-}
-#tc:hover img {
-  opacity: 0.5;
-}
-
-#tr video{
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-#tr:hover video {
-  opacity: 0.5;
-}
-
-#ml img{
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-#ml:hover img {
-  opacity: 0.5;
-}
-
-#mc img{
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-#mc:hover img {
-  opacity: 0.5;
-}
-
-#mr img{
-  display: block;
-  width: 150%;
-  height: 200%;
-  position: relative;
-  bottom: 50px;
-}
-#mr:hover img {
-  opacity: 0.5;
-}
-
-#bl img{
-  display: block;
-  width: 150%;
-  height: 200%;
-  position: relative;
-  
-}
-#bl:hover img {
-  opacity: 0.5;
-}
-
-#bc img{
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  
-}
-#bc:hover img {
-  opacity: 0.5;
-}
-
-#br img{
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  
-}
-#br:hover img {
-  opacity: 0.5;
-}
-
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  padding-top: 50px; /* Location of the box */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
-}
-
-/* Modal Content (Image) */
-.modal-content {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
-}
-
-
-/* Add Animation - Zoom in the Modal */
-.modal-content {
-  animation-name: zoom;
-  animation-duration: 0.6s;
-}
-
-@keyframes zoom {
-  from {transform:scale(0)}
-  to {transform:scale(1)}
-}
-
-/* The Close Button */
-.close {
-  position: absolute;
-  top: 15px;
-  right: 35px;
-  color: #f1f1f1;
-  font-size: 40px;
-  font-weight: bold;
-  transition: 0.3s;
-}
-
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-  .modal-content {
-    width: 100%;
-  }
-}
-
-.owl-carousel {
--ms-touch-action: pan-y;
-touch-action: pan-y;
-}
-or
-.owl-carousel {
--ms-touch-action: none;
-touch-action: none;
-}
