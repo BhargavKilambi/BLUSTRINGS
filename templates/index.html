@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html lanh="en" class="no-js">
+<html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> 
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/frontpage.css') }}">
 		<script type="text/javascript" src="{{ url_for('static', filename='js/particles.js') }}"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
-		<script type="text/javascript">
-			$(window).load(function() {
-				$("#preloader").hide();
-			});
-		</script>
 	</head>
 	<body>
 		<div id="preloader"></div>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/lottie.js') }}"></script>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/preloader.json') }}"></script>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/preloader.js') }}"></script>
+		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+		<script type="text/javascript">
+			$(window).on('load', function() {
+				$("#preloader").fadeOut("slow");
+			});
+		</script>
 		<div class="container">
 	  		<section class="background">
 	  			<div class="intro">
@@ -32,14 +31,7 @@
 	  		</section>
 	  		<section class="background about"></section>
 		</div>
-		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-		<script type="text/javascript">
-			$(".container").on('load', function(){
-				$(".container").fadeIn("slow");
-			});
-		</script>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script> 
-		<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script> 
 		<script type="text/javascript" src="{{ url_for('static', filename='js/frontpage.js') }}"></script>
 	</body>
 </html>
