@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html lanh="en">
+<html lanh="en" class="no-js">
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}"> 
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/frontpage.css') }}">
 		<script type="text/javascript" src="{{ url_for('static', filename='js/particles.js') }}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
+		<script type="text/javascript">
+			$(window).load(function() {
+				$("#preloader").hide();
+			});
+		</script>
 	</head>
-	<body onload="preloader_function()">
+	<body>
 		<div id="preloader"></div>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/lottie.js') }}"></script>
 		<script type="text/javascript" src="{{ url_for('static', filename='js/preloader.json') }}"></script>
@@ -23,13 +30,12 @@
 					<script type="text/javascript" src="{{ url_for('static', filename='js/logo.js') }}"></script>
 				</div>
 	  		</section>
-	  		<section class="background"></section>
+	  		<section class="background about"></section>
 		</div>
 		<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 		<script type="text/javascript">
-			$(document).ready(function(){
-				$('#preloader').delay(2000).fadeOut('slow');
-				$('.container').delay(500).fadeIn(3000);	
+			$(".container").on('load', function(){
+				$(".container").fadeIn("slow");
 			});
 		</script>
 		<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script> 

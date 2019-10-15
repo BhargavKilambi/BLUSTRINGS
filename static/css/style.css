@@ -2,16 +2,14 @@ body, html{
 	background-color: #000000;
 }
 
+.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
 #preloader{
-	height: 20%;
-	width: 20%;
-	position: absolute;
-    top: 50%;
-    left: 50%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
-    z-index: 9999;
+	position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 50%;
+    height: 50%;
 }
 
 #logo{
@@ -20,13 +18,17 @@ body, html{
 	position: absolute;
     top: 50%;
     left: 50%;
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-55%) translateY(-50%);
+    -webkit-transform: translateX(-55%) translateY(-50%);
+    transform: translateX(-50%) translateY(-60%);
 }
 
 #particles-js{
     height: 130vh;
+}
+
+.about{
+    background-color: #ffffff;
 }
 
 
