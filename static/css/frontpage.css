@@ -4,14 +4,13 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   border: 0;
   font-size: 100%;
   font: inherit;
-  vertical-align: baseline
+  vertical-align: baseline;  
 }
 
 .background {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  overflow: hidden;
   will-change: transform;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
