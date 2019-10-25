@@ -1,0 +1,151 @@
+/* Animations for "about" section visibility */
+/* .section-about .partition--right,
+.section-about .partition--left,
+.section-about .partition--left::before,
+.section-about .partition--left::after,
+.section-about .partition--left .section__title,
+.section-about .partition--left .section__content {
+  transform: translateY(10rem);
+  opacity: 0;
+  transition: transform 1200ms cubic-bezier(0.2, 1, 0.2, 1.01),
+    opacity 1200ms cubic-bezier(0.2, 1, 0.2, 1.01);
+} */
+
+/* .section-about.is-visible .partition--right,
+.section-about.is-visible .partition--left,
+.section-about.is-visible .partition--left::before,
+.section-about.is-visible .partition--left::after,
+.section-about.is-visible .partition--left .section__title,
+.section-about.is-visible .partition--left .section__content {
+  transform: none;
+  opacity: 1;
+} */
+
+/* .section-about .partition--right {
+  transition-delay: 2200ms;
+} */
+
+/* .section-about .partition--left::before {
+  transition-delay: 300ms;
+}
+
+.section-about .partition--left::after {
+  transition-delay: 600ms;
+}
+
+.section-about .partition--left .section__title {
+  transition-delay: 1200ms;
+}
+
+.section-about .partition--left .section__content {
+  transition-delay: 1700ms;
+} */
+
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////// */
+@keyframes animate-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes animate-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes animate-out-up {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(-10rem);
+  }
+}
+
+@keyframes animate-out-down {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+
+  to {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
+}
+
+/* ////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////// */
+/* ////////////////////////////////////////////////////////////////////////// */
+
+.section .partition--left::before,
+.section .partition__title,
+.section .partition__content {
+  opacity: 0;
+  transform: none;
+
+  animation-duration: 1200ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.2, 1, 0.2, 1.01);
+}
+
+.section.animation-done .partition--left::before,
+.section.animation-done .partition__title,
+.section.animation-done .partition__content {
+  opacity: 1;
+}
+
+.section .partition--left::before {
+  animation-delay: 0;
+}
+
+.section .partition__title {
+  animation-delay: 200ms;
+}
+
+.section .partition__content {
+  animation-delay: 400ms;
+}
+
+.section.animate-in-up .partition--left::before,
+.section.animate-in-up .partition__title,
+.section.animate-in-up .partition__content {
+  animation-name: animate-in-up;
+}
+
+.section.animate-in-down .partition--left::before,
+.section.animate-in-down .partition__title,
+.section.animate-in-down .partition__content {
+  animation-name: animate-in-down;
+}
+
+.section.animate-out-up .partition--left::before,
+.section.animate-out-up .partition__title,
+.section.animate-out-up .partition__content {
+  animation-name: animate-out-up;
+}
+
+.section.animate-out-down .partition--left::before,
+.section.animate-out-down .partition__title,
+.section.animate-out-down .partition__content {
+  animation-name: animate-out-down;
+}

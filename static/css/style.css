@@ -1,37 +1,22 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
 
-.no-js #loader { display: none;  }
-.js #loader { display: block; position: absolute; left: 100px; top: 0; }
-#preloader {
-  position: fixed;
-  left: 0px;
-  top: 0px;
-  width: 100%;
-  height: 100vh;
+html, body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: 'Raleway', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.5;
   background-color: #000;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
-#preloader svg{
-    width: 228px !important;
-    height: 228px !important;
-}
-
-#logo {
-  width: 70%;
-  height: 70%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -moz-transform: translateX(-55%) translateY(-50%);
-  -webkit-transform: translateX(-55%) translateY(-50%);
-  transform: translateX(-50%) translateY(-60%);
-}
-
-#particles-js{
-    height: 130vh;
+img {
+  max-width: 100%;
+  width: 100%;
+  display: block;
 }
 
 /* width */
@@ -41,15 +26,138 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #ffffff; 
+  background: #ffffff;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555;
+}
+
+/*                  Layout                  */
+.section {
+  height: calc(100vh + 2rem);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  will-change: transform;
+  backface-visibility: hidden;
+  transition: all 1.4s cubic-bezier(0.22, 0.44, 0, 1);
+  /* transform: translateY(-2rem); */
+}
+
+.section.section-intro {
+  background-image: url("../images/img-1.jpg");
+}
+
+/* Set stacking context of slides */
+.section:nth-child(1) { z-index: 2; }
+
+.section .section__content {
+  display: flex;
+  width: 100%;
+  max-width: 1400px;
+  margin: auto;
+  height: 100%;
+  position: relative;
+}
+
+.section .partition {
+  width: 100%;
+}
+
+.partition .partition__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/*                       Components                       */
+#preloader {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#preloader svg {
+  width: 228px !important;
+  height: 228px !important;
+}
+
+.intro-particles,
+.intro-logo {
+  width: 100%;
+  height: 100%;
+}
+
+.intro-particles {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.partition {
+  position: relative;
+}
+
+.partition.partition--right .partition__content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.partition .partition__title {
+  margin: 0;
+  display: inline-block;
+  padding: 0 1rem 0 0.125rem;
+  border-bottom: 2px solid currentColor;
+}
+
+.partition.partition--left {
+  padding: 1rem;
+}
+
+.partition.partition--left::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/*          Section specific colors             */
+/* .section--about .partition--left, */
+.section--about .partition--left::before {
+  background-color: #FFFF00;
+}
+
+/* .section--e2e .partition--left, */
+.section--e2e .partition--left::before {
+  background-color: #FFEA00;
+}
+
+/* .section--work .partition--left, */
+.section--work .partition--left::before {
+  background-color: #FFD600;
 }
