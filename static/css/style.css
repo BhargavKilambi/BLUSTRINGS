@@ -41,7 +41,7 @@ img {
 
 /*                  Layout                  */
 .section {
-  height: calc(100vh + 2rem);
+  /* height: calc(100vh + 2rem); */
   height: 100vh;
   width: 100%;
   display: flex;
@@ -118,6 +118,7 @@ img {
 
 .partition {
   position: relative;
+  height: 100%;
 }
 
 .partition.partition--right .partition__content img {
@@ -146,6 +147,14 @@ img {
   height: 100%;
 }
 
+.partition.partition--right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50vw;
+  height: 100%;
+}
+
 /*          Section specific colors             */
 /* .section--about .partition--left, */
 .section--about .partition--left::before {
@@ -160,4 +169,121 @@ img {
 /* .section--work .partition--left, */
 .section--work .partition--left::before {
   background-color: #FFD600;
+}
+
+
+.fixed-section {
+  position: absolute;
+  top: 100vh;
+  width: 50vw;
+  height: 100vh;
+}
+
+.fixed-section .section {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: auto;
+}
+
+/* individual sections */
+.fixed-section .section.section--about {
+  right: 2rem;
+  z-index: 20;
+}
+
+.fixed-section .section--about {
+  background-color: #FFFF00;
+}
+
+.fixed-section .section.section--e2e {
+  z-index: 10;
+  right: 1rem;
+}
+
+.fixed-section .section--e2e {
+  background-color: #FFEA00;
+}
+
+.fixed-section .section--work {
+  background-color: #FFD600;
+}
+
+
+/************************************ Tabs ************************************/
+.tab-element {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  height: 100%;
+  background: url('../../static/images/bg9.png');
+}
+
+.tab-buttons {
+  display: flex;
+  position: relative;
+  z-index: 200;
+}
+
+.tab-buttons .tab-button {
+  width: 100%;
+  border: 0;
+  padding: 1.5rem 2rem;
+  text-transform: uppercase;
+  background: #555;
+  font-size: 1.25rem;
+}
+
+.tab-content {
+  display: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab-content.active-tab {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.tab-content .service {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  min-width: 130px;
+  max-width: 200px;
+  padding: 1rem;
+  align-items: center;
+  text-align: center;
+}
+
+.tab-button.active-tab {
+  background: transparent;
+}
+
+.tab-container {
+  flex: 1;
+}
+
+.tab-content::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-size: cover;
+  z-index: -1;
+}
+
+.tab-content:nth-child(1)::before {
+  background-image: url('../../static/images/bg8.png');
+}
+
+.tab-content:nth-child(2)::before {
+  background-image: url('../../static/images/bg9.png');
 }

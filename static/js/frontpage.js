@@ -114,9 +114,45 @@ var transitionTimeout;
 var animationTime = 600;
 var transitionTime = 200;
 
+var fixedSection = document.querySelector('.fixed-section');
+var sections = Array.from(fixedSection.querySelectorAll('.section'));
+
 fullpage("#fullpage", {
-    sectionSelector: '.section',
     afterLoad: function(origin, destination, direction) {
+        if (destination.index >= 1 && destination.index <= 3) {
+            fixedSection.classList.remove('animate-out-down');
+            fixedSection.classList.add('animate-in-up');
+
+            if (direction === 'down') {
+                // sections.forEach(section => section.classList.remove('animate-in-up'));
+                // sections.forEach(section => section.classList.remove('animate-in-down'));
+                sections[destination.index - 1].classList.remove('animate-out-down');
+                sections[destination.index - 1].classList.remove('animate-in-down');
+                sections[destination.index - 1].classList.add('animate-in-up');
+
+                sections[destination.index - 1].classList.add('current-section');
+            } else {
+                // sections.forEach(section => section.classList.remove('animate-out-up'));
+                // sections.forEach(section => section.classList.remove('animate-out-down'));
+                sections[destination.index - 1].classList.remove('animate-out-up');
+                sections[destination.index - 1].classList.remove('animate-in-up');
+                sections[destination.index - 1].classList.add('animate-in-down');
+
+                sections[destination.index - 1].classList.add('current-section');
+            }
+        } else {
+            fixedSection.classList.remove('animate-in-up');
+            fixedSection.classList.add('animate-out-down');
+
+            setTimeout(() => {
+                fixedSection.classList.remove('animate-in-up');
+                fixedSection.classList.remove('animate-out-down');
+            }, 1000);
+        }
+
+        // destination.item.classList.remove('animate-in-up');
+        // destination.item.classList.remove('animate-in-down');
+
         if (direction === 'down') {
             destination.item.classList.add('animate-in-up');
         } else {
@@ -156,6 +192,25 @@ fullpage("#fullpage", {
             origin.item.classList.remove('animate-out-up');
             origin.item.classList.remove('animate-out-down');
 
+            if (destination.index >= 1 && destination.index <= 3) {
+                fixedSection.style.transform = `translateY(${((destination.index - 1) * 100)}vh)`;
+
+                if (origin.index >= 1) {
+                    if (direction === 'down') {
+                        sections[origin.index - 1].classList.remove('animate-in-up');
+                        sections[origin.index - 1].classList.remove('animate-in-down');
+                        sections[origin.index - 1].classList.remove('animate-out-up');
+                        sections[origin.index - 1].classList.remove('animate-out-down');
+
+                        sections[origin.index - 1].classList.add('animate-out-up');
+                    } else if (origin.index >= 1) {
+                        // sections[origin.index - 1].classList.add('animate-out-down');
+                    }
+
+                    sections[origin.index - 1].classList.remove('current-section');
+                }
+            }
+
             // Move to target section
             if(direction === 'down') {
                 fullpage_api.moveSectionDown();
@@ -169,3 +224,28 @@ fullpage("#fullpage", {
         return animationIsFinished;
     }
 });
+
+var tabElement = document.querySelector('.tab-element');
+var tabSections = document.querySelectorAll('[id^="section-"');
+var tabButtons = document.querySelectorAll('.tab-button');
+tabButtons.forEach(tabButton =>{
+    tabButton.addEventListener('click', function() {
+        tabSections.forEach(tabSection => {
+            if (tabSection.id === tabButton.getAttribute('data-target')) {
+                tabSection.classList.add('active-tab');
+            } else {
+                tabSection.classList.remove('active-tab');
+            }
+        });
+
+        tabButtons.forEach(button => {
+            if (button === tabButton) {
+                button.classList.add('active-tab');
+            } else {
+                button.classList.remove('active-tab');
+            }
+        });
+    });
+});
+
+document.querySelector('[data-default-open]').click();

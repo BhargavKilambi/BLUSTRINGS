@@ -97,9 +97,9 @@
 /* ////////////////////////////////////////////////////////////////////////// */
 /* ////////////////////////////////////////////////////////////////////////// */
 
-.section .partition--left::before,
-.section .partition__title,
-.section .partition__content {
+.partition--left::before,
+.partition__title,
+.partition__content {
   opacity: 0;
   transform: none;
 
@@ -148,4 +148,66 @@
 .section.animate-out-down .partition__title,
 .section.animate-out-down .partition__content {
   animation-name: animate-out-down;
+}
+
+/* Same animations but for fixed section */
+
+.fixed-section {
+  transition: transform 700ms ease 0s; /* Same as slide transition */
+}
+
+.fixed-section .section {
+  opacity: 0;
+  transform: none;
+
+  animation-duration: 1200ms;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.2, 1, 0.2, 1.01);
+}
+
+.fixed-section .section--work {
+  animation-delay: 0s;
+}
+
+.fixed-section .section--e2e {
+  animation-delay: 200ms;
+}
+
+.fixed-section .section--about {
+  animation-delay: 400ms;
+}
+
+/*                                 */
+.fixed-section.animate-in-up .section {
+  animation-name: animate-in-up;
+}
+
+.fixed-section.animate-out-down .section {
+  animation-name: animate-out-down;
+}
+
+/*                                 */
+.fixed-section .section.animate-in-up {
+  animation-name: animate-in-up;
+}
+
+.fixed-section .section.animate-in-down {
+  animation-name: animate-in-down;
+}
+
+.fixed-section .section.animate-out-up {
+  animation-name: animate-out-up;
+}
+
+.fixed-section .section.animate-out-down {
+  animation-name: animate-out-down;
+}
+
+.fixed-section .section.animate-out-up {
+  animation-delay: 600ms;
+}
+
+.fixed-section :not(.current-section) .partition__title,
+.fixed-section :not(.current-section) .partition__content {
+  opacity: 0;
 }
