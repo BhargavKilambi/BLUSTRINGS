@@ -153,7 +153,7 @@
 		<section id="first" class="section parallax section-intro">
 			<div class="section__content">
 				<div  id="particles-js" class="intro-particles"></div>
-				<div class="intro-logo"></div>
+				<div class="intro-logo" style="position: fixed;"></div>
 			</div>
 		</section>
 <!-- 
@@ -468,7 +468,8 @@
 	<script type="text/javascript" src="{{ url_for('static', filename='js/lottie-animations.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
 	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script>
-	<!-- <script type="text/javascript" src="{{ url_for('static', filename='js/frontpage.js') }}"></script> -->
+	<script type="text/javascript" src="{{ url_for('static', filename='js/fullpage.extensions.min.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/fullpage.js') }}"></script>
 	<!-- <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.onepage-scroll.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.onepage-scroll.min.js') }}"></script> -->
 	<script>
@@ -479,6 +480,18 @@ var secs = ['#first','#middle','#last'];
 var aboutTop = $('#middle').offset().top;
 var lastTop = $('#last').offset().top;
 var currentPos = 0;
+$(window).ready(function(){
+
+	$('.service').fadeOut();
+	for(var i=0;i<7;i++){
+						
+						$('#seg'+(i+1)).fadeOut();
+											
+						}
+
+});
+
+
 // $(window).bind('mousewheel DOMMouseScroll onmousewheel touchmove scroll', function(event) {
 	
 	
@@ -498,6 +511,7 @@ var currentPos = 0;
 // });
 $('#e2e-sec').hide();
 $('#our-sec').hide();
+$('.service').fadeOut();
 var $window = $(window), previousScrollTop = 0, scrollLock = false;
 
 // var maxSlides = 2;
@@ -541,11 +555,13 @@ var titles = ['abouttitle','e2etitle','ourtitle']
 var currSlides = 0;
 
 new fullpage("#fullpage",{
+	parallax:true,
+	parallaxOptions: {type: 'reveal', percentage: 62, property: 'translate'},
+	scrollingSpeed:900,
 	afterLoad:function(origin,destination,direction){
 
 		
 			for(var x=0;x<3;x++){
-				console.log(x);
 				var dc = document.getElementById(paras[x]);
 				dc.classList.remove('fadeInUp');
 			}
@@ -600,10 +616,12 @@ new fullpage("#fullpage",{
 
 
 		}
+		if(destination.index == 3){
+			$('.service').fadeOut("fast");
+		}
 		if(destination.index == 4){
-			$('.service').fadeOut(5);
 			
-
+					$('.service').hide();
 				  for(var i=0;i<7;i++){
 						
 					$('#seg'+(i+1)).delay(i*200).fadeIn(300);
@@ -613,6 +631,64 @@ new fullpage("#fullpage",{
 		}
 		
 		
+	},
+	onLeave:function(origin,destination,direction){
+			
+		for(var x=0;x<3;x++){
+				var dc = document.getElementById(paras[x]);
+				dc.classList.remove('fadeOutDown');
+			}
+			for(var x=0;x<3;x++){
+				var dc = document.getElementById(images[x]);
+				dc.classList.remove('fadeOutDown');
+			}
+			for(var x=0;x<3;x++){
+				var dc = document.getElementById(titles[x]);
+				dc.classList.remove('fadeOutDown');
+			}
+		
+		
+		if(direction == 'down'){
+			if(destination.index >=1 && destination.index <3){
+			var dc2 = document.getElementById(titles[destination.index]);
+		dc2.classList.remove('fadeOutDown');
+		dc2.classList.add('fadeOutDown');
+		var dc = document.getElementById(paras[destination.index]);
+		dc.classList.remove('fadeOutDown');
+		setTimeout(function(){
+			dc.classList.add('fadeOutDown');
+		},200);
+		var dc1 = document.getElementById(images[destination.index]);
+		dc1.classList.remove('fadeOutDown');
+		setTimeout(function(){
+			dc1.classList.add('fadeOutDown');
+		},400);
+		
+		}
+		}
+
+
+		if(direction == 'up'){
+			
+
+		if(destination.index >=1 && destination.index <3){
+		var dc2 = document.getElementById(titles[destination.index]);
+		dc2.classList.remove('fadeOutDown');
+		dc2.classList.add('fadeOutDown');
+		var dc = document.getElementById(paras[destination.index]);
+		dc.classList.remove('fadeOutDown');
+		setTimeout(function(){
+			dc.classList.add('fadeOutDown');
+		},200);
+		var dc1 = document.getElementById(images[destination.index]);
+		dc1.classList.remove('fadeOutDown');
+		setTimeout(function(){
+			dc1.classList.add('fadeOutDown');
+		},400);
+		}
+
+
+		}
 	}
 });
 	
