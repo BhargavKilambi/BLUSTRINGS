@@ -8,12 +8,12 @@
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.css">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/animations.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/onepage-scroll.css') }}">
+	<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/onepage-scroll.css') }}"> -->
 	<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/frontpage.css') }}"> -->
 	<!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/secondpage.css') }}"> -->
 
 	<link href="https://fonts.googleapis.com/css?family=Raleway&display=swap" rel="stylesheet">
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
 
 	<style>
@@ -27,7 +27,7 @@
 		.column {
 		  float: left;
 		  width: 50%;
-		  padding: 4vh;
+		  padding: 6vh;
 		  height: 100vh; /* Should be removed. Only for demonstration */
 		}
 		
@@ -43,8 +43,15 @@
 			background-attachment: fixed;
   			background-position: center;
   			background-repeat: no-repeat;
-			  background-size: cover;
-			  display: flex;
+			background-size: cover;
+		}
+
+		.intro-particles{
+			z-index: 0;
+			background-attachment: fixed;
+  			background-position: center;
+  			background-repeat: no-repeat;
+			background-size: cover;
 		}
 
 		.row{
@@ -52,6 +59,85 @@
 			height: 100vh;
 			width: 100%;
 		}
+
+
+
+			/* Animation */
+
+			@keyframes fadeInUp {
+				from {
+					transform: translate3d(0,20vh,0)
+				}
+
+				to {
+					transform: translate3d(0,0,0);
+					opacity: 1
+				}
+			}
+
+			@-webkit-keyframes fadeInUp {
+				from {
+					transform: translate3d(0,20vh,0)
+				}
+
+				to {
+					transform: translate3d(0,0,0);
+					opacity: 1
+				}
+			}
+
+			@keyframes fadeOutDown {
+				from {
+					transform: translate3d(0,0,0);
+					opacity: 1;
+				}
+
+				to {
+					transform: translate3d(0,40px,0);
+					opacity: 0;
+				}
+			}
+
+			@-webkit-keyframes fadeOutDown {
+				from {
+					transform: translate3d(0,0,0);
+					opacity: 1;
+				}
+
+				to {
+					transform: translate3d(0,40px,0);
+					opacity: 0;
+				}
+			}
+
+			.animated {
+				animation-duration: 1s;
+				animation-fill-mode: both;
+				-webkit-animation-duration: 1s;
+				-webkit-animation-fill-mode: both
+			}
+
+			.animatedFadeInUp {
+				opacity: 0
+			}
+
+			.fadeInUp {
+				opacity: 0;
+				animation-name: fadeInUp;
+				-webkit-animation-name: fadeInUp;
+			}
+
+			.fadeOutDown{
+				opacity: 0;
+				animation-name: fadeOutDown;
+				-webkit-animation-name:fadeOutDown ;
+			}
+
+			
+
+
+
+
 		</style>
 
 
@@ -62,13 +148,14 @@
 		
 	<div id="preloader"></div>
 
+
 	<div class="container main" id="fullpage">
-		<main style="position: fixed;z-index:10" class="section parallax section-intro">
+		<section id="first" class="section parallax section-intro">
 			<div class="section__content">
 				<div  id="particles-js" class="intro-particles"></div>
-				<div style="position: fixed;" class="intro-logo"></div>
+				<div class="intro-logo"></div>
 			</div>
-		</main>
+		</section>
 <!-- 
 		<section class="section section--animatable-content section--about">
 			<div class="section__content">
@@ -100,51 +187,52 @@
 			</div>
 		</section> -->
 		
-<main class="middle">
+<section class="section middle" id="middle" style="z-index: 100;">
 		<div  id="about" class="row">
 				<div id="aboutcol" class="column" style="background-color:#FFFF00;overflow: hidden;cursor:default">
-						<h2 style="display:inline;border-bottom:1px solid #000;padding-bottom:1vh">About Us</h2>
-						<p>BluStrings is a creation of the 21st Century, bringing in experience from different fields of science, communication and
+						<h2 id="abouttitle" class="animated animatedFadeInUp" style="display:inline;border-bottom:1px solid #000;padding-bottom:1vh">About Us</h2>
+						<p id="about-para" class="animated animatedFadeInUp" style="text-align: justify;" >BluStrings is a creation of the 21st Century, bringing in experience from different fields of science, communication and
 						  marketing; we offer a very niche end-product to our clients. We integrate our experiences in event planning and
-						  management that translates into our deliverables.</p>
-						  <p>Having been in the industry and sharing 18+ man-years of experience, we believe in our commitment to guarantee and deliver a successful event with seamless execution; providing a mix of
-						  professional services and creativity. We have created, managed & executed a plethora of events across the board.</p>
-						  <p>With a dedicated team that covers all avenues in building your project right from the ground up, we conceptualize and develop
+						  management that translates into our deliverables. <br> <br>
+						  Having been in the industry and sharing 18+ man-years of experience, we believe in our commitment to guarantee and deliver a successful event with seamless execution; providing a mix of
+						  professional services and creativity. We have created, managed & executed a plethora of events across the board. <br> <br>
+						  With a dedicated team that covers all avenues in building your project right from the ground up, we conceptualize and develop
 						  on comprehensive plans and ideas that suit your budget. Our team is with you at every step of the way.</p>
 					  </div>
-					  <div id="aboutimg" class="column" style="background-image:url('../static/images/about_1.jpg');background-size:cover;">
+					  <div id="aboutimg" class="column animated animatedFadeInUp" style="background-image:url('../static/images/about_1.jpg');background-size:cover;">
 					  </div>
 		</div>
-</main>
-<main class="middle">
+	</section>
+
+<section class="section middle1">
 		<div  id="e2e" class="row">
 				<div id="e2ecol" class="column" style="background-color:#FFEA00;overflow: hidden;cursor:default">
-						<h2 style="display:inline;border-bottom:1px solid #000;padding-bottom:1vh" >End to End Event Solutions</h2>
-						<p>BluStrings understands the importance of celebrating an occasion. As the years pass, Social events, Cultural Shows,
+						<h2 id="e2etitle" class="animated animatedFadeInUp" style="display:inline;border-bottom:1px solid #000;padding-bottom:1vh" >End to End Event Solutions</h2>
+						<p id="e2e-para" class="animated animatedFadeInUp" style="text-align:justify">BluStrings understands the importance of celebrating an occasion. As the years pass, Social events, Cultural Shows,
 								Music Festivals, Concept Events & Club Shows have only grown in number. At BluStrings we create and cater the perfect
 								package with all-inclusive services from finalization of the venue to the complete production and execution of the show.
 								Our team comprises of visionaries that are driven to inspire, create and add value to every project we take on with our
 								clients. We believe in cost-effective performances, accountability and maintain timelines to deliver an excellent
 								product as promised.</p>
 					  </div>
-					  <div id="e2eimg" class="column" style="background-image:url('../static/images/end_1.jpg');background-size:cover;">
+					  <div id="e2e1img" class="column animated animatedFadeInUp" style="background-image:url('../static/images/end_1.jpg');background-size:cover;">
 					  </div>
 		</div>
-</main>
-<main class="middle" >
+	</section>
+<section class="section middle2" >
 		<div  id="our_work" class="row">
 				<div id="our_workcol" class="column" style="background-color:#FFD600;overflow: hidden;cursor:default">
-						<h2 style="display:inline;border-bottom:1px solid #000;padding-bottom:1vh">Our Work</h2>
-						<p>Our Exhibit showcases events across the various segments we have encountered. Each event came with its own sets of
+						<h2 id="ourtitle" class="animated animatedFadeInUp" style="display:inline;border-bottom:1px solid #000;padding-bottom:1vh">Our Work</h2>
+						<p id="our-para" class="animated animatedFadeInUp" style="text-align: justify;">Our Exhibit showcases events across the various segments we have encountered. Each event came with its own sets of
 								challenges and risk factors. BluStrings believes in the mantra of Creation, Cultivation and Curation through which we
 								have been able to overcome any set of challenges resulting in these events that were impeccable and glamorous to the
 								audience. BluStrings lays utmost importance on Quality, Inventiveness & Perfection to ensure that your event/show runs
 								as crafted, whether it’s for a glamorous appeal or a night for everyone to remember.</p>
 					  </div>
-					  <div id="our_workimg" class="column" style="background-image:url('../static/images/our_work.jpg');background-size:cover;">
+					  <div id="our_img" class="column animated animatedFadeInUp" style="background-image:url('../static/images/our_work.jpg');background-size:cover;">
 					  </div>
 		</div>
-</main>
+	</section>
 		  <style>
 			* {box-sizing: border-box}
 
@@ -179,80 +267,53 @@
 			#Home {background-image: url('../static/images/bg9.png');}
 			#News {background-image: url('../static/images/bg9.png');}
 			</style>
-			<main>
+			<section class="section" id="last">
 				<div id="part3" style="width: 100%;">
 			<button class="tablink" onclick="openPage('Home', this)"  id="defaultOpen">SEGMENTS</button>
 			<button class="tablink" onclick="openPage('News', this)">SERVICES</button>
 			
 			<div id="Home" class="tabcontent">
-					<style>
-							.grid-container {
-							  display: grid;
-							  grid-template-columns: auto auto auto auto;
-							  background-color: transparent;
-							  padding: 10px;
-							  margin-top:8%;
-							}
-							.grid-item {
-							  background-color: transparent;
-							  border: 0px solid rgba(0, 0, 0, 0.8);
-							  padding: 20px;
-							  height: 20vh;
-							  font-size: 10px;
-							  text-align: center;
-							  justify-content: center;
-							  justify-items: center;
-							  font-weight: 600;
-							}
-							.service-image{
-								height: 80px;
-								width:80px;
-								margin-left:36%;
-							}
-							.service{
-								text-align: center;
-							}
-							</style>
+					
 							
 							
 							<div class="grid-container">
-							  <div class="grid-item">
-									<div class="service">
+							  <div  class="grid-item">
+									<div id="seg1" class="service">
 											<img src="../static/images/icon/conferences.png" class="service-image">
 											<h4 class="service-description">CONFERENCES</h4>
 										</div>
 							  </div>
 							  <div class="grid-item">
-									<div class="service">
+									<div id="seg2" class="service">
 											<img src="../static/images/icon/corporate.png" class="service-image">
 											<h4 class="service-description">CORPORATE EVENTS</h4>
 										</div>
 							  </div>
 							  <div class="grid-item">
-									<div class="service">
+									<div id="seg3" class="service">
 											<img src="../static/images/icon/social_events.png" class="service-image">
 											<h4 class="service-description">SOCIAL EVENTS</h4>
 										</div>
 							  </div>  
 							  <div class="grid-item">
-									<div class="service">
+									<div id="seg4" class="service">
 											<img src="../static/images/icon/end_to_end_av_solutions.png" class="service-image">
 											<h4 class="service-description">END TO END EVENT SOLUTIONS</h4>
 										</div>
 							  </div>
 							  <div class="grid-item">
-									<div class="service">
+									<div id="seg5" class="service">
 											<img src="../static/images/icon/entertainment.png" class="service-image">
 											<h4 class="service-description">ENTERTAINMENT SHOWS</h4>
 										</div>
 							  </div>
 							  <div class="grid-item">
-									<div class="service">
+									<div id="seg6" class="service">
 											<img src="../static/images/icon/cultural_shows.png" class="service-image">
 											<h4 class="service-description">CULTURAL SHOWS</h4>
 										</div>
 							  </div>  
-							  <div class="grid-item"><div class="service">
+							  <div class="grid-item"><div id="seg7" class="service">
 									<img src="../static/images/icon/branding.png" class="service-image">
 									<h4 class="service-description">TRADE SHOWS &amp; EXHIBITIONS</h4>
 								</div></div> 
@@ -263,7 +324,7 @@
 					<style>
 							.grid-container {
 							  display: grid;
-							  grid-template-columns: auto auto auto auto;
+							  grid-template-columns: 25% 25% 25% 25%;
 							  background-color: transparent;
 							  padding: 10px;
 							  margin-top:8%;
@@ -281,7 +342,7 @@
 							.service-image{
 								height: 80px;
 								width:80px;
-								margin-left:36%;
+								margin-left: 35%;
 							}
 							.service{
 								text-align: center;
@@ -292,61 +353,61 @@
 							<div class="grid-container">
 
 							  <div class="grid-item">
-									<div class="service">
+									<div id="ser1" class="service">
 								<img src="../static/images/icon/sound.png" class="service-image">
 								<h4 class="service-description">SOUND</h4>
 							</div>
 							  </div>
 							  <div class="grid-item">
-							  <div class="service">
+							  <div id="ser2" class="service">
 									<img src="../static/images/icon/lights.png" class="service-image">
 									<h4 class="service-description">LIGHTS</h4>
 								</div>
 							</div>
 							<div class="grid-item">
-								<div class="service">
+								<div id="ser3" class="service">
 									<img src="../static/images/icon/vision.png" class="service-image">
 									<h4 class="service-description">VISION</h4>
 								</div>
 							</div>
 							<div class="grid-item">
-								<div class="service">
+								<div id="ser4" class="service">
 									<img src="../static/images/icon/registration.png" class="service-image">
 									<h4 class="service-description">REGISTRATION MANAGEMENT</h4>
 								</div>
 							</div>
 							<div class="grid-item">
-								<div class="service">
+								<div id="ser5" class="service">
 									<img src="../static/images/icon/photography.png" class="service-image">
 									<h4 class="service-description">PHOTOGRAPHY &amp; VIDEOGRAPHY</h4>
 								</div>
 							</div>
 							<div class="grid-item">
-								<div class="service">
+								<div id="ser6" class="service">
 									<img src="../static/images/icon/digital_systems.png" class="service-image">
 									<h4 class="service-description">DIGITAL SYSTEMS</h4>
 								</div>
 							</div>
 							<div class="grid-item">
-								<div class="service">
+								<div id="ser7" class="service">
 									<img src="../static/images/icon/staging_styling.png" class="service-image">
 									<h4 class="service-description">STAGING &amp; STYLING</h4>
 								</div>
 							</div>
 							<div class="grid-item">
-								<div class="service">
+								<div id="ser8" class="service">
 									<img src="../static/images/icon/branding.png" class="service-image">
 									<h4 class="service-description">BRANDING</h4>
 								</div>
 							</div>
 							<div class="grid-item">
-								<div class="service">
+								<div id="ser9" class="service">
 									<img src="../static/images/icon/artist_management.png" class="service-image">
 									<h4 class="service-description">ARTIST MANAGEMENT</h4>
 								</div>
 							</div>
 							<div class="grid-item">
-								<div class="service">
+								<div id="ser10" class="service">
 									<img src="../static/images/icon/manpower.png" class="service-image">
 									<h4 class="service-description">MANPOWER MANAGEMENT</h4>
 								</div>
@@ -355,7 +416,7 @@
 							</div>
 			</div>
 		</div>
-	</main>
+	</section>
 			<script>
 			function openPage(pageName,elmnt) {
 			  var i, tabcontent, tablinks;
@@ -371,138 +432,30 @@
 			  document.getElementById(pageName).style.display = "block";
 			  elmnt.style.backgroundColor = "transparent";
 			  elmnt.style.color = "#000";
+
+
+			  $('.service').fadeOut(10);
+			  if(pageName == 'Home'){
+
+				  for(var i=0;i<7;i++){
+						
+					$('#seg'+(i+1)).delay(i*200).fadeIn(300);
+					
+				  }
+			  }else{
+				for(var i=0;i<10;i++){
+						
+						$('#ser'+(i+1)).delay(i*200).fadeIn(300);
+						
+					  }
+			  }
+
 			}
 			
 			// Get the element with id="defaultOpen" and click on it
 			document.getElementById("defaultOpen").click();
 			</script>
 
-		<!-- <section class="section section--segments">
-			<div class="section__content">
-				<div class="tab-element">
-					<div class="tab-buttons">
-						<button class="tab-button" type="button" data-target="section-segments" style="outline: none;" data-default-open>Segments</button>
-						<button class="tab-button" type="button" data-target="section-services" style="outline: none;">Services</button>
-					</div>
-					<div class="tab-container">
-						<div class="tab-content" id="section-segments">
-							<div class="service">
-								<img src="../static/images/icon/conferences.png" class="service-image">
-								<h4 class="service-description">CONFERENCES</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/corporate.png" class="service-image">
-								<h4 class="service-description">CORPORATE EVENTS</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/social_events.png" class="service-image">
-								<h4 class="service-description">SOCIAL EVENTS</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/end_to_end_av_solutions.png" class="service-image">
-								<h4 class="service-description">END TO END EVENT SOLUTIONS</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/entertainment.png" class="service-image">
-								<h4 class="service-description">ENTERTAINMENT SHOWS</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/cultural_shows.png" class="service-image">
-								<h4 class="service-description">CULTURAL SHOWS</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/branding.png" class="service-image">
-								<h4 class="service-description">TRADE SHOWS &amp; EXHIBITIONS</h4>
-							</div>
-						</div>
-						<div class="tab-content" id="section-services">
-							<div class="service">
-								<img src="../static/images/icon/sound.png" class="service-image">
-								<h4 class="service-description">SOUND</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/lights.png" class="service-image">
-								<h4 class="service-description">LIGHTS</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/vision.png" class="service-image">
-								<h4 class="service-description">VISION</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/registration.png" class="service-image">
-								<h4 class="service-description">REGISTRATION MANAGEMENT</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/photography.png" class="service-image">
-								<h4 class="service-description">PHOTOGRAPHY &amp; VIDEOGRAPHY</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/digital_systems.png" class="service-image">
-								<h4 class="service-description">DIGITAL SYSTEMS</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/staging_styling.png" class="service-image">
-								<h4 class="service-description">STAGING &amp; STYLING</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/branding.png" class="service-image">
-								<h4 class="service-description">BRANDING</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/artist_management.png" class="service-image">
-								<h4 class="service-description">ARTIST MANAGEMENT</h4>
-							</div>
-							<div class="service">
-								<img src="../static/images/icon/manpower.png" class="service-image">
-								<h4 class="service-description">MANPOWER MANAGEMENT</h4>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section> -->
-
-		<!-- <div class="fixed-section">
-			<div class="section section--about">
-				<div class="section__partition partition partition--left">
-					<h2 class="partition__title">About Us</h2>
-					<div class="partition__content">
-						<p>BluStrings is a creation of the 21st Century, bringing in experience from different fields of science, communication and
-						marketing; we offer a very niche end-product to our clients. We integrate our experiences in event planning and
-						management that translates into our deliverables.</p>
-						<p>Having been in the industry and sharing 18+ man-years of experience, we believe in our commitment to guarantee and deliver a successful event with seamless execution; providing a mix of
-						professional services and creativity. We have created, managed & executed a plethora of events across the board.</p>
-						<p>With a dedicated team that covers all avenues in building your project right from the ground up, we conceptualize and develop
-						on comprehensive plans and ideas that suit your budget. Our team is with you at every step of the way.</p>
-					</div>
-				</div>
-			</div>
-			<div class="section section--e2e">
-				<div class="section__partition partition partition--left">
-					<h2 class="partition__title">End to End Event Solutions</h2>
-					<div class="partition__content">
-						<p>BluStrings understands the importance of celebrating an occasion. As the years pass, Social events, Cultural Shows,
-						Music Festivals, Concept Events & Club Shows have only grown in number. At BluStrings we create and cater the perfect
-						package with all-inclusive services from finalization of the venue to the complete production and execution of the show.
-						Our team comprises of visionaries that are driven to inspire, create and add value to every project we take on with our
-						clients. We believe in cost-effective performances, accountability and maintain timelines to deliver an excellent
-						product as promised.</p>
-					</div>
-				</div>
-			</div>
-			<div class="section section--work">
-				<div class="section__partition partition partition--left">
-					<h2 class="partition__title">Our Work</h2>
-					<div class="partition__content">
-						<p>Our Exhibit showcases events across the various segments we have encountered. Each event came with its own sets of
-						challenges and risk factors. BluStrings believes in the mantra of Creation, Cultivation and Curation through which we
-						have been able to overcome any set of challenges resulting in these events that were impeccable and glamorous to the
-						audience. BluStrings lays utmost importance on Quality, Inventiveness & Perfection to ensure that your event/show runs
-						as crafted, whether it’s for a glamorous appeal or a night for everyone to remember.</p>
-					</div>
-				</div>
-			</div>
-		</div> -->
 	</div>
 
 
@@ -515,34 +468,152 @@
 	<script type="text/javascript" src="{{ url_for('static', filename='js/lottie-animations.js') }}"></script>
 	<script type="text/javascript" src="{{ url_for('static', filename='js/app.js') }}"></script>
 	<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='js/frontpage.js') }}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.onepage-scroll.js') }}"></script>
-	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.onepage-scroll.min.js') }}"></script>
+	<!-- <script type="text/javascript" src="{{ url_for('static', filename='js/frontpage.js') }}"></script> -->
+	<!-- <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.onepage-scroll.js') }}"></script>
+	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.onepage-scroll.min.js') }}"></script> -->
 	<script>
 
-		
-		
-$(".main").onepage_scroll({
-   sectionContainer: "main",     // sectionContainer accepts any kind of selector in case you don't want to use section
-   easing: "ease",                  // Easing options accepts the CSS3 easing animation such "ease", "linear", "ease-in",
-                                    // "ease-out", "ease-in-out", or even cubic bezier value such as "cubic-bezier(0.175, 0.885, 0.420, 1.310)"
-   animationTime: 1000,             // AnimationTime let you define how long each section takes to animate
-   pagination: false,                // You can either show or hide the pagination. Toggle true for show, false for hide.
-   updateURL: false,                // Toggle this true if you want the URL to be updated automatically when the user scroll to each page.
-   beforeMove: function(index) {
-	
-		
 
-   },  // This option accepts a callback function. The function will be called before the page moves.
-   afterMove: function(index) {
-	var curr = index - 2;
-   },   // This option accepts a callback function. The function will be called after the page moves.
-   loop: false,                     // You can have the page loop back to the top/bottom when the user navigates at up/down on the first/last page.
-   keyboard: true,                  // You can activate the keyboard controls
-   responsiveFallback: false,        // You can fallback to normal page scroll by defining the width of the browser in which
-                                    // you want the responsive fallback to be triggered. For example, set this to 600 and whenever
-                                    // the browser's width is less than 600, the fallback will kick in.
-   direction: "vertical"            // You can now define the direction of the One Page Scroll animation. Options available are "vertical" and "horizontal". The default value is "vertical".  
+
+var secs = ['#first','#middle','#last'];
+var aboutTop = $('#middle').offset().top;
+var lastTop = $('#last').offset().top;
+var currentPos = 0;
+// $(window).bind('mousewheel DOMMouseScroll onmousewheel touchmove scroll', function(event) {
+	
+	
+// 	var winTop = $(window).scrollTop();
+
+// 	if(winTop > aboutTop){
+// 		$('html,body').animate({
+// 			scrollTop: $('#middle').offset().top
+// 		},"slow");
+// 	}
+
+// 	if(winTop > lastTop){
+		
+// 	}
+	
+	
+// });
+$('#e2e-sec').hide();
+$('#our-sec').hide();
+var $window = $(window), previousScrollTop = 0, scrollLock = false;
+
+// var maxSlides = 2;
+// var currSlide = 0;
+
+// var slides = ['','#e2e-sec','#our-sec']
+
+// $window.scroll(function(event) { 
+// 	var winTop = $(window).scrollTop();
+
+// 	if (event.originalEvent.wheelDelta >= 0) {
+// 		console.log('Scroll up');
+// 		if(currSlide > 0) currSlide-=1;
+		
+		
+//     }
+//     else {
+// 		if(currSlide < maxSlides) currSlide +=1;
+// 		$(slides[currSlide]).fadeIn(1000);
+// 		console.log('Scroll down');
+// 		if (currSlide == 0)
+// 		{scrollLock = !scrollLock;}
+//     }
+
+// 	if(winTop >= aboutTop)
+// 	scrollLock = true;
+
+
+// 	// set (bool)scrollLock prior to this to either lock or unlock
+//     if(scrollLock) {
+// 		$window.scrollTop(previousScrollTop);
+//     }
+
+//     previousScrollTop = $window.scrollTop();
+
+// });
+
+var paras = ['about-para','e2e-para','our-para']
+var images = ['aboutimg','e2e1img','our_img']
+var titles = ['abouttitle','e2etitle','ourtitle']
+var currSlides = 0;
+
+new fullpage("#fullpage",{
+	afterLoad:function(origin,destination,direction){
+
+		
+			for(var x=0;x<3;x++){
+				console.log(x);
+				var dc = document.getElementById(paras[x]);
+				dc.classList.remove('fadeInUp');
+			}
+			for(var x=0;x<3;x++){
+				var dc = document.getElementById(images[x]);
+				dc.classList.remove('fadeInUp');
+			}
+			for(var x=0;x<3;x++){
+				var dc = document.getElementById(titles[x]);
+				dc.classList.remove('fadeInUp');
+			}
+		
+		
+		if(direction == 'down'){
+			if(destination.index >=1 && destination.index <4){
+			var dc2 = document.getElementById(titles[destination.index-1]);
+		dc2.classList.remove('fadeInUp');
+		dc2.classList.add('fadeInUp');
+		var dc = document.getElementById(paras[destination.index-1]);
+		dc.classList.remove('fadeInUp');
+		setTimeout(function(){
+			dc.classList.add('fadeInUp');
+		},200);
+		var dc1 = document.getElementById(images[destination.index-1]);
+		dc1.classList.remove('fadeInUp');
+		setTimeout(function(){
+			dc1.classList.add('fadeInUp');
+		},400);
+		
+		}
+		}
+
+
+		if(direction == 'up'){
+			
+
+		if(destination.index >=1 && destination.index <4){
+		var dc2 = document.getElementById(titles[destination.index-1]);
+		dc2.classList.remove('fadeInUp');
+		dc2.classList.add('fadeInUp');
+		var dc = document.getElementById(paras[destination.index-1]);
+		dc.classList.remove('fadeInUp');
+		setTimeout(function(){
+			dc.classList.add('fadeInUp');
+		},200);
+		var dc1 = document.getElementById(images[destination.index-1]);
+		dc1.classList.remove('fadeInUp');
+		setTimeout(function(){
+			dc1.classList.add('fadeInUp');
+		},400);
+		}
+
+
+		}
+		if(destination.index == 4){
+			$('.service').fadeOut(5);
+			
+
+				  for(var i=0;i<7;i++){
+						
+					$('#seg'+(i+1)).delay(i*200).fadeIn(300);
+					
+				  }
+			  
+		}
+		
+		
+	}
 });
 	
 
